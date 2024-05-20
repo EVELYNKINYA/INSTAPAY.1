@@ -1,0 +1,111 @@
+/* Navbar Styles */
+.app-navbar {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .app-navbar .navbar-brand {
+    margin-right: 100;
+  }
+  
+  .app-navbar .navbar-collapse {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+  }
+  
+  .app-navbar .navbar-nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .app-navbar .search-form {
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .app-navbar .nav-link,
+  .app-navbar .dropdown-toggle {
+    margin: 0 10px;
+  }
+  
+  /* Move the home component to the far left corner */
+  .app-navbar .navbar-brand {
+    margin-left: 0;
+  }
+  
+  /* Position the search bar in the center */
+  .app-navbar .search-form {
+    margin: 0 auto;
+  }/* Navbar Styles */
+  .app-navbar {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .app-navbar .navbar-brand {
+    margin-right: auto;
+  }
+  
+  .app-navbar .navbar-collapse {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+  }
+  
+  .app-navbar .navbar-nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .app-navbar .nav-link,
+  .app-navbar .dropdown-toggle {
+    margin: 0 10px;
+  }
+  
+  /* Move the home component to the far left corner */
+  .app-navbar .navbar-brand {
+    margin-left: 0;
+  }
+  
+  /* Style the search bar */
+  .app-navbar .search-form {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .app-navbar .search-form .form-control {
+    border-radius: 20px;
+    padding-right: 30px;
+    padding-left: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .app-navbar .search-form .clear-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+  }
+  
+  .app-navbar .search-form .clear-btn:hover {
+    color: #666;
+  }
+  
+  /* Remove the search button */
+  .app-navbar .search-form .btn {
+    display: none;
+  }

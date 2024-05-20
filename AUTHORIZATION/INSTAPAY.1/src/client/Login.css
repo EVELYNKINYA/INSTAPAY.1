@@ -1,0 +1,63 @@
+/* Login container styles */
+.login-container {
+  max-width: 400px; /* Adjust the max-width as needed for responsiveness */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 20px;
+  background-color: #f7f7f7; /* Light background color */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+}
+
+/* Login form styles */
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333; /* Dark text color */
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px; /* Rounded input fields */
+  border: 1px solid #ccc; /* Border color */
+}
+
+.login-form button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff; /* Primary button color */
+  border: none;
+  border-radius: 5px;
+  color: #fff; /* Text color */
+}
+
+.login-form button[type="submit"]:hover {
+  background-color: #0056b3; /* Darker color on hover */
+}
+
+/* Error message styles */
+.error-message {
+  margin-top: 10px;
+  color: #dc3545; /* Error message text color */
+}
+
+/* Signup link styles */
+.signup-link {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.signup-link p {
+  margin-bottom: 10px;
+}
+
+.signup-link a {
+  color: #007bff; /* Link color */
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline; /* Underline link on hover */
+}

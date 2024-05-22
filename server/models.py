@@ -16,7 +16,7 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(128), nullable=False)
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(50), nullable=False)
-    phone_number = db.Column(db.String(20), nullable=True) 
+    phone_number = db.Column(db.String(20), nullable=False) 
     is_admin = db.Column(db.Boolean, default=False)
     wallets = db.relationship('Wallet', lazy='dynamic')
     beneficiaries = db.relationship('Beneficiary', back_populates='beneficiary_user', lazy='dynamic')
@@ -100,7 +100,7 @@ class WalletTransaction(db.Model):
         }
 
 class Beneficiary(db.Model):
-    __tablename__ = 'beneficiaries'
+    __tablename__= 'beneficiaries'
 
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
@@ -114,7 +114,7 @@ class Beneficiary(db.Model):
     email = Column(String(120), nullable=False, unique=True)
     beneficiary_user = relationship('User')
 
-    def __repr__(self):
+    def _repr_(self):
         return f'<Beneficiary {self.name}>'
 
     def to_dict(self):

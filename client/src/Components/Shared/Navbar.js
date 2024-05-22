@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
+// import { FaBars, FaTimes } from 'react-icons/fa';
 import './navbar.css';
-import { Navbar, Nav } from 'react-bootstrap';
 
 const NavbarComponent = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen ] = useState(false);
 
 
   return (

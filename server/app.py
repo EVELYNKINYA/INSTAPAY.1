@@ -58,7 +58,7 @@ def register():
         return jsonify({'message': 'Username already exists'}), 400
 
     # Create a new user
-    new_user = User(username=username, email=email, first_name=first_name, last_name=last_name, is_admin=is_admin)
+    new_user = User(username=username, email=email, first_name=first_name, last_name=last_name, phone_number=phone_number, is_admin=is_admin)
     new_user.set_password(password)
     db.session.add(new_user)
     db.session.commit()
@@ -364,5 +364,5 @@ def add_wallet_transaction():
     else:
         return jsonify({'message': 'Invalid wallet or transaction'}), 400
 
-if __name__ == "__main__":
-    app.run(debug=True)    
+if __name__== "__main__":
+    app.run(debug=True)

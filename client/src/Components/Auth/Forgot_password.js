@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { Container, Form, Button } from 'react-bootstrap';
-import './forgotpassword.css';
+import './Forgot_password.css';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');

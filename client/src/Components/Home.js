@@ -2,12 +2,18 @@ import React from "react";
 import CountUp from "react-countup";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import Footer from "./Shared/Footer";
-//import Navbar from "../Shared/Navbar"
+import { useNavigate } from 'react-router-dom';
+
 
 const Home = () => {
+    const navigate = useNavigate(); // Initialize the useNavigate hook
+
+    const handleGetStarted = () => {
+        navigate('/login'); // Navigate to the /login route
+    };
+
     return (
         <div>
-
             <Container className="text-center mt-5 mb-5">
                 <h4 className="font-weight-bold">Send money in a heartbeat</h4>
                 <h1 className="display-4 font-weight-bold">
@@ -16,6 +22,10 @@ const Home = () => {
                 <p className="lead">
                     Sign up to start saving on money transfers and bill payments.
                 </p>
+                <button onClick={handleGetStarted} className="btn btn-primary">
+                Get Started
+            </button>
+                
             </Container>
             <Container className="mt-5">
                 <Row className="bg-white border shadow-lg rounded-lg py-4">
@@ -54,10 +64,10 @@ const Home = () => {
             <Container className="mt-n5 mb-5">
                 <Row className="g-4">
                     {[
-                        { img: "/images/our-solutions-icon-1.png", title: "Send Money", text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." },
-                        { img: "/images/our-solutions-icon-2.png", title: "Receive Money", text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." },
-                        { img: "/images/our-solutions-icon-3.png", title: "Request Money", text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." },
-                        { img: "/images/our-solutions-icon-4.png", title: "Global Account", text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry." }
+                        { img: "/images/our-solutions-icon-1.png", title: "Send Money", text: "Seamlessly transfer funds to friends, family, or business associates with ease"},
+                        { img: "/images/our-solutions-icon-2.png", title: "Receive Money", text: "Effortlessly receive money from anyone, anywhere."},
+                        { img: "/images/our-solutions-icon-3.png", title: "Request Money", text: "Easily request payments from others with just a few clicks"},
+                        { img: "/images/our-solutions-icon-4.png", title: "Global Account", text: "Manage your finances internationally with our Global Account. Enjoy the flexibility of accessing your money from anywhere in the world, with support for multiple currencies and seamless transactions." }
                     ].map((item, index) => (
                         <Col md={6} xl={3} key={index} className="d-flex">
                             <Card className="w-75 border rounded-1 p-4 text-center shadow-sm">

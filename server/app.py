@@ -7,6 +7,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import os
 from flask_migrate import Migrate
 from functools import wraps
+import requests 
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Instapay.db'
@@ -15,11 +16,12 @@ app.config['SECRET_KEY'] = 'your_secret_key'
 app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key' 
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = 86400  # 30 minutes
 
-CORS(app)
+
 db.init_app(app)
 migrate = Migrate(app, db)
 jwt = JWTManager(app)
-
+CORS(app)
+# CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
 with app.app_context():
     db.create_all()
 
@@ -35,6 +37,40 @@ def admin_required(fn):
     return wrapper
 
 profile_bp = Blueprint('profile', __name__)
+base_url = "https://lipia-api.kreativelabske.com/api"
+endpoint = "/request/stk"
+
+# Define the API key
+api_key = "0c34144b8a1c394a49ca4b3d31856938ae30360c"  # Replace with your actual API key
+
+@app.route('/initiate_payment', methods=['POST'])
+def initiate_payment():
+    data = request.json
+
+    # Extract phone and amount from the request JSON body
+    phone = data.get("phone")
+    amount = data.get("amount")
+
+    # Define the headers
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json"
+    }
+
+    # Define the payload
+    payload = {
+        "phone": phone,
+        "amount": amount
+    }
+
+    # Send the POST request
+    response = requests.post(f"{base_url}{endpoint}", headers=headers, json=payload)
+
+    # Return the response from the API
+    if response.status_code == 200:
+        return jsonify(response.json()), 200
+    else:
+        return jsonify(response.json()), response.status_code
 
 # User registration and login routes
 @app.route('/api/register', methods=['POST'])
@@ -238,6 +274,7 @@ def delete_wallet(wallet_id):
         return jsonify({'message': 'Wallet not found or not authorized'}), 404
 
 # Transaction routes
+
 @app.route('/api/transactions', methods=['POST'])
 @jwt_required()
 def create_transaction():
